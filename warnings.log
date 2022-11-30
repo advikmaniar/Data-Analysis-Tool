@@ -1,0 +1,78 @@
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (c:\Users\advik\anaconda3\lib\site-packages\prophet\stan_model\cmdstan-2.26.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\5rav4j3r.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\1wf86tiz.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=81281', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\5rav4j3r.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\1wf86tiz.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_model4_i87dw_\\prophet_model-20221102143710.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:TBB already found in load path
+INFO:prophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\4lbmxc1q.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\2bpmz2k2.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=42956', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\4lbmxc1q.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\2bpmz2k2.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_modeluotksnb9\\prophet_model-20221102151926.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:TBB already found in load path
+INFO:prophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\9kac0ij3.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\fgn989dm.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=92686', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\9kac0ij3.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\fgn989dm.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_modeljmvu6pyi\\prophet_model-20221102154819.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:TBB already found in load path
+INFO:prophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\nhrtxpwk.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\whxgvlsg.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=65517', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\nhrtxpwk.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\whxgvlsg.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_modelhe0718tp\\prophet_model-20221105223644.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:TBB already found in load path
+INFO:prophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\9s2g8n9s.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\kblqkomk.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=59050', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\9s2g8n9s.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\kblqkomk.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_model8aldv07w\\prophet_model-20221105230130.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:TBB already found in load path
+INFO:prophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+INFO:prophet:Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\u409v2wt.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\cuwd_ts4.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=72628', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\u409v2wt.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\cuwd_ts4.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_modelf6x4kcj5\\prophet_model-20221105230708.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:TBB already found in load path
+INFO:prophet:Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\qdgqep27.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\advik\AppData\Local\Temp\tmpeyspk3ws\fvu2v5ul.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\advik\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=96440', 'data', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\qdgqep27.json', 'init=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\fvu2v5ul.json', 'output', 'file=C:\\Users\\advik\\AppData\\Local\\Temp\\tmpeyspk3ws\\prophet_modeldmvse8j2\\prophet_model-20221105232921.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
