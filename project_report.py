@@ -4,6 +4,7 @@ from sqlalchemy import *
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import plotly
 import matplotlib.pyplot as plt
 plt.style.use('dark_background')
 import streamlit as st
