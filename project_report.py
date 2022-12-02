@@ -191,15 +191,6 @@ def output_df_to_pdf(pdf, df):
         pdf.ln(table_cell_height)
 
 
-def output_image_pdf(pdf, image):
-
-    cover = Image.open("meantemp1.png")
-    width, height = cover.size
-    width, height = float(width*0.264583*0.7), float(height*0.264583*0.7)
-    pdf.image(image,0,10,width,height)
-    pdf.ln(20)
-
-
 #----------------------------------------------------------Functions for Prophet Model-------------------------------------------------------------------#
 # def paramaterTuning(df,col):
 
@@ -404,29 +395,57 @@ def column_feature_importance(df,num_columns):
 
     return col_cols_dict
 
+#Create cover page for the report PDF.
+def cover_page(FPDF):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.image("cover_page.png",0,0,210,297,type="PNG")
 
-#---------------------------------------------------------Start
-generated_pdf = FPDF()
+    return pdf
+
+def load_data_method(data_load_choice):
+
+    if(data_load_choice == 1):
+        df = pd.read_csv(data_name)
+        print("Data Successfully Added!")
+        print("Generating Report.......")
+        return df
+    elif(data_load_choice == 2):
+        df = pd.read_sql(fetch_query,mydb)
+        print("Data Successfully Added!")
+        print("Generating Report.......")
+        return df
+    else:
+        print("Not a valid input. Type either 1 or 2")
+
+
+#---------------------------------------------------------Start main-------------------------------------------------------#
+
+#Create PDF object and set properties
+generated_pdf = cover_page(FPDF)
 generated_pdf.add_page()
 generated_pdf.set_fill_color(169,169,169)
-generated_pdf.set_font("Courier",'I',8)
 generated_pdf.set_font("Arial",'BU',26)
 generated_pdf.cell(0,10,"Report Generated",align='C')
 generated_pdf.ln(20)
 
 #Establish Connection with DB
 mydb = connectDB("localhost","root","LXa0A$27V")
-
 schema_used = "project_test."
 data_used = "weather_data_denver"
-fetch_query = "SELECT * FROM "+schema_used+data_used+" LIMIT 50000"
+fetch_query = "SELECT * FROM "+schema_used+data_used+" LIMIT 20000"
+#Call data directly using csv file.
+data_name = "weather_data_denver.csv"
 
-df = pd.read_sql(fetch_query,mydb)
+#Get data loading method.
+data_load_choice = int(input("How do you want to load your data? (1 - Directly from CSV / 2 - From SQL Database)"))
+df = load_data_method(data_load_choice)
+
 
 #Data Preprocessing
 if("Time" in df.columns):
     for i in range(df.shape[0]):
-        if "AM" in df["Time"][i]:
+        if "AM" in df["Time"][i]: 
             df["Time"][i] = timeConversion(df["Time"][i])
 
     df["Date"] = df["Date"].map(str) + " " +df["Time"]
@@ -490,7 +509,6 @@ output_df_to_pdf(generated_pdf,description_report)
 
 #Monthly and yearly average values
 monthly_grouped_df = df.groupby([df["date"].dt.month]).mean().reset_index().rename(columns = {"date":"Month"}).round(3)
-yearly_grouped_df = df.groupby([df["date"].dt.year]).mean().reset_index().rename(columns = {"date":"Year"}).round(3)
 monthly_grouped_df["month"] = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 # monthly_grouped_df["Month"] = ["January","February","March","April"]
 print(monthly_grouped_df)
@@ -498,6 +516,9 @@ generated_pdf.ln(5)
 generated_pdf.set_font("Arial",'BI',12)
 generated_pdf.cell(70,10,txt="Monthly grouped values (Mean)",align="L",ln=1,border=True,fill=True)
 output_df_to_pdf(generated_pdf,monthly_grouped_df)
+
+yearly_grouped_df = df.groupby([df["date"].dt.year]).mean().reset_index().rename(columns = {"date":"Year"}).round(3)
+print(yearly_grouped_df)
 generated_pdf.ln(5)
 generated_pdf.set_font("Arial",'BI',12)
 generated_pdf.cell(70,10,txt="Yearly grouped values (Mean)",align="L",ln=1,border=True,fill=True)
@@ -513,7 +534,7 @@ generated_pdf.set_font("Arial",'BI',12)
 generated_pdf.cell(32,10,txt = "Top "+str(m)+ " features ",align="L",ln=1,border=True,fill=True)
 output_df_to_pdf(generated_pdf,most_corr_columns_df[:m].round(3))
 
-#Datetime Feature Importance
+# Datetime Feature Importance
 df_xgb = df.copy()
 dt_n=3
 col_cols_dict = column_feature_importance(df_xgb,most_corr_columns)
@@ -524,7 +545,7 @@ for outerKey, innerDict in col_cols_dict.items():
                        innerKey)] = values
 
 col_cols_df = pd.DataFrame(reformed_dict)
-# display(col_cols_df[:dt_n])
+print(col_cols_df[:dt_n])
 
 
 #-------------------------------------------------------------------------Output to PDF-----------------------------------------------------------------------#
@@ -635,7 +656,7 @@ for colm in most_corr_columns:
     
 
 
-# #Prophet Model
+# Prophet Model
 generated_pdf.ln(20)
 generated_pdf.set_font("Arial",'BI',16)
 generated_pdf.set_fill_color(169,169,169)
@@ -697,7 +718,7 @@ if ("target" in df.columns or "output" in df.columns):
 
 
 #Output generated PDF
-generated_pdf.output("report_latest.pdf",'F')
+generated_pdf.output("data_report.pdf",'F')
 
 
 #-------------------------------------------------------------------Plots------------------------------------------------#
