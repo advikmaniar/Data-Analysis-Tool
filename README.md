@@ -22,7 +22,7 @@ Here is a snapshot of the same data to understand what the input data should loo
 4) The time should be in 24-hour format
 5) The dependent variable (if any) should be the last column of the dataset and should have the name `"output"` or `"target"`.
 6) The data should be continuous (should not miss any dates).
-7)
+
 
 ## Loading data
 <h3>There are two ways to load data into the model: </h3>
