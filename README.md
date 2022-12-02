@@ -3,7 +3,7 @@ Data Analysis tool developed in Python to analyze and forecast multivariate time
 
 <hr>
 
-> <b> NOTE: Download the required packages and dependencies [here](/requirements.txt). <br> 
+> <b> NOTE: Download the required packages and dependencies [here](/requirements.txt). </b> <br> 
 
 ## Overview 
 
@@ -15,15 +15,14 @@ The dataset used to develop and test the script can be found [here](/weather_dat
 Here is a snapshot of the same data to understand what the input data should look like.
 ![image](https://user-images.githubusercontent.com/72503778/205184189-a46eca1e-3584-4027-b91c-63d7e24fee24.png)
 
-<h3>Following are brief rules that tell what the data should look like: </h3>
+<h3>Format your data in the following manner: </h3>
 
 1) The first column has to be DateTime. 
 2) If date and time are together in one column, the format should be `"dd-mm-YY hh:mm:ss"`
 4) The time should be in 24-hour format
-5) The data should be time series.
-6) The dependent variable (if any) should be the last column of the dataset and should have the name `"output"` or `"target"`.
-7) The data should be continuous (should not miss any dates).
-8) Ideally, the data should not contain any missing values.
+5) The dependent variable (if any) should be the last column of the dataset and should have the name `"output"` or `"target"`.
+6) The data should be continuous (should not miss any dates).
+7)
 
 ## Loading data
 <h3>There are two ways to load data into the model: </h3>
