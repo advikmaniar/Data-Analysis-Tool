@@ -1,5 +1,6 @@
 # Data-Analysis-Tool
-Data Analysis tool developed in Python to analyze and forecast multivariate time series input data.
+Data Analysis tool developed in Python to analyze and forecast multivariate time series input data. This tool performs time series analysis and forecasts data values in the near future.
+
 <hr>
 
 > <b> NOTE: Download the required packages and dependencies [here](/requirements.txt). <br> 

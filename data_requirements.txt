@@ -1,9 +1,0 @@
-What the data should look like:
-
-1) The first column has to be date. 
-2) If date and time are together in one column, the format should be "dd-mm-YY hh:mm:ss"
-4) The time should be in 24-hour format
-5) The data should be time series.
-6) The dependent variable (if any) should be the last column of the dataset and should have the name "output" or "target".
-7) The time based data should not be missing any dates.
-8) Ideally, the data should not contain any missing values
