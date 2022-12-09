@@ -110,7 +110,7 @@ def time_period_mean(df,period,cols):
     date_max_list=[]
     date_min_list=[]
     for col in cols:
-        for n in range(366):
+        for n in range(367):
             if period == "hour":
                 df_time = df[df["date"].dt.hour == n][col].mean()
                 
