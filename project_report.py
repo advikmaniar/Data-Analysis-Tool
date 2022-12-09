@@ -110,7 +110,7 @@ def time_period_mean(df,period,cols):
     date_max_list=[]
     date_min_list=[]
     for col in cols:
-        for n in range(365):
+        for n in range(366):
             if period == "hour":
                 df_time = df[df["date"].dt.hour == n][col].mean()
                 
@@ -118,7 +118,7 @@ def time_period_mean(df,period,cols):
                 df_time = df[df["date"].dt.month == n][col].mean()
 
             elif period == "year":
-                df_time = df[df["date"].dt.year == n][col].mean()
+                df_time = df[df["date"].dt.year == (int(df["date"][0].year)+n)][col].mean()
 
             elif period == "dayofmonth":
                 df_time = df[df["date"].dt.day == n][col].mean()
@@ -420,7 +420,7 @@ def load_data_method(data_load_choice):
         print("Not a valid input. Type either 1 or 2")
 
 
-#---------------------------------------------------------Start main-------------------------------------------------------#
+#----------------------------------------------------------------------Start main-----------------------------------------------------------------------------#
 
 #Create PDF object and set properties
 generated_pdf = cover_page(FPDF)
@@ -431,10 +431,10 @@ generated_pdf.cell(0,10,"Report Generated",align='C')
 generated_pdf.ln(20)
 
 #Establish Connection with DB
-mydb = connectDB("localhost","root","LXa0A$27V")
+mydb = connectDB("localhost","root","test123")
 schema_used = "project_test."
 data_used = "weather_data_denver"
-fetch_query = "SELECT * FROM "+schema_used+data_used+" LIMIT 20000"
+fetch_query = "SELECT * FROM "+schema_used+data_used+" LIMIT 50000"
 #Call data directly using csv file.
 data_name = "weather_data_denver.csv"
 
@@ -588,27 +588,27 @@ for colm in most_corr_columns:
             quarters = {"January":1,"February":2,"March":3,"April":4,"May":5,"June":6,"July":7,"August":8,"September":9,"October":10,"November":11,"December":12}
             k,v = quarters.keys() , quarters.values()
             print(date_max_list)
-            res = [key for key in quarters if quarters[key] == date_max_list[i].values[0]]
-            print(col_list[i],"is highest in",res[0],"with an average value of",round(col_max_list[i],3))
+            res = [key for key in quarters if quarters[key] == date_max_list[c].values[0]]
+            print(col_list[c],"is highest in",res[0],"with an average value of",round(col_max_list[c],3))
             generated_pdf.set_fill_color(225,225,225)
-            generated_pdf.cell(0,5,fill=True,txt = str(col_list[i])+"is highest in"+str(res[0])+"with an average value of"+str(round(col_max_list[i],3)),align="L",ln=1)
-            res = [key for key in quarters if quarters[key] == date_min_list[i].values[0]]
-            print(col_list[i],"is lowest in",res[0],"with an average value of",round(col_min_list[i],3))
-            generated_pdf.cell(0,8,fill=True,txt = str(col_list[i])+"is lowest in"+str(res[0])+"with an average value of"+str(round(col_min_list[i],3)),align="L",ln=1)
+            generated_pdf.cell(0,5,fill=True,txt = str(col_list[c])+"is highest in"+str(res[0])+"with an average value of"+str(round(col_max_list[c],3)),align="L",ln=1)
+            res = [key for key in quarters if quarters[key] == date_min_list[c].values[0]]
+            print(col_list[c],"is lowest in",res[0],"with an average value of",round(col_min_list[c],3))
+            generated_pdf.cell(0,8,fill=True,txt = str(col_list[c])+"is lowest in"+str(res[0])+"with an average value of"+str(round(col_min_list[c],3)),align="L",ln=1)
 
         elif per == "year":
-            print(col_list[i],"is highest between month",date_max_list[i].values[0],"with an average value of",round(col_max_list[i],3))
-            print(col_list[i],"is lowest between month",date_min_list[i].values[0],"with an average value of",round(col_min_list[i],3))
+            print(col_list[c],"is highest in year",date_max_list[c].values[0],"with an average value of",round(col_max_list[c],3))
+            print(col_list[c],"is lowest in year",date_min_list[c].values[0],"with an average value of",round(col_min_list[c],3))
             generated_pdf.set_fill_color(220, 220, 220)
-            generated_pdf.cell(0,5,fill=True,txt =str(col_list[i])+" is highest in year "+str(date_max_list[i].values[0])+" with an average value of "+str(round(col_max_list[i],3)),align="L",ln=1)
-            generated_pdf.cell(0,8,fill=True,txt =str(col_list[i])+" is lowest in year "+str(date_min_list[i].values[0])+" with an average value of "+str(round(col_min_list[i],3)),align="L",ln=1)
+            generated_pdf.cell(0,5,fill=True,txt =str(col_list[c])+" is highest in year "+str(date_max_list[c].values[0])+" with an average value of "+str(round(col_max_list[c],3)),align="L",ln=1)
+            generated_pdf.cell(0,8,fill=True,txt =str(col_list[c])+" is lowest in year "+str(date_min_list[c].values[0])+" with an average value of "+str(round(col_min_list[c],3)),align="L",ln=1)
 
         elif per == "dayofmonth":
-            print(col_list[i],"is highest between day",date_max_list[i].values[0],"and day",date_max_list[i].values[0]+1," with an average value of ",round(col_max_list[i],3))
-            print(col_list[i],"is lowest between day",date_min_list[i].values[0],"and day",date_min_list[i].values[0]+1," with an average value of ",round(col_min_list[i],3))
+            print(col_list[c],"is highest between day",date_max_list[c].values[0],"and day",date_max_list[c].values[0]+1," with an average value of ",round(col_max_list[c],3))
+            print(col_list[c],"is lowest between day",date_min_list[c].values[0],"and day",date_min_list[c].values[0]+1," with an average value of ",round(col_min_list[c],3))
             generated_pdf.set_fill_color(215, 215, 215)
-            generated_pdf.cell(0,5,fill=True,txt =str(col_list[i])+" is highest on day "+str(date_max_list[i].values[0])+" with an average value of "+str(round(col_max_list[i],3)),align="L",ln=1)
-            generated_pdf.cell(0,8,fill=True,txt =str(col_list[i])+" is lowest on day "+str(date_min_list[i].values[0])+" with an average value of "+str(round(col_min_list[i],3)),align="L",ln=1)
+            generated_pdf.cell(0,5,fill=True,txt =str(col_list[c])+" is highest on day "+str(date_max_list[c].values[0])+" with an average value of "+str(round(col_max_list[c],3)),align="L",ln=1)
+            generated_pdf.cell(0,8,fill=True,txt =str(col_list[c])+" is lowest on day "+str(date_min_list[c].values[0])+" with an average value of "+str(round(col_min_list[c],3)),align="L",ln=1)
 
         elif per == "dayofweek":
             quarters = {"Monday":0,"Tuesday":1,"Wednesday":2,"Thursday":3,"Friday":4,"Saturday":5,"Sunday":6}
@@ -632,19 +632,19 @@ for colm in most_corr_columns:
             print(col_list[c],"is highest in week number",date_max_list[c].values[0],"with an average value of",round(col_max_list[c],3))
             print(col_list[c],"is highest in week number",date_min_list[c].values[0],"with an average value of",round(col_min_list[c],3))
             generated_pdf.set_fill_color(200,200,200)
-            generated_pdf.cell(0,5,fill=True,txt =str(col_list[i])+" is highest in week number "+str(date_max_list[i].values[0])+" with an average value of "+str(round(col_max_list[i],3)),align="L",ln=1)
-            generated_pdf.cell(0,8,fill=True,txt =str(col_list[i])+" is lowest in week number "+str(date_min_list[i].values[0])+" with an average value of "+str(round(col_min_list[i],3)),align="L",ln=1)
+            generated_pdf.cell(0,5,fill=True,txt =str(col_list[c])+" is highest in week number "+str(date_max_list[c].values[0])+" with an average value of "+str(round(col_max_list[c],3)),align="L",ln=1)
+            generated_pdf.cell(0,8,fill=True,txt =str(col_list[c])+" is lowest in week number "+str(date_min_list[c].values[0])+" with an average value of "+str(round(col_min_list[c],3)),align="L",ln=1)
 
         elif per == "quarter":
             quarters = {"1st":1,"2nd":2,"3rd":3,"4th":4}
             k,v = quarters.keys() , quarters.values()
-            res = [key for key in quarters if quarters[key] == date_max_list[i].values[0]]
-            print(col_list[i],"is highest in the",res[0],"quarter with an average value of",round(col_max_list[i],3))
+            res = [key for key in quarters if quarters[key] == date_max_list[c].values[0]]
+            print(col_list[c],"is highest in the",res[0],"quarter with an average value of",round(col_max_list[c],3))
             generated_pdf.set_fill_color(190,190,190)
-            generated_pdf.cell(0,5,fill=True,txt =str(col_list[i])+" is highest in the "+str(res[0])+" quarter with an average value of "+str(round(col_max_list[i],3)),align="L",ln=1)
-            res = [key for key in quarters if quarters[key] == date_min_list[i].values[0]]
-            print(col_list[i],"is lowest in the",res[0],"quarter with an average value of",round(col_min_list[i],3))
-            generated_pdf.cell(0,8,fill=True,txt =str(col_list[i])+" is highest in the "+str(res[0])+" quarter with an average value of "+str(round(col_min_list[i],3)),align="L",ln=1)
+            generated_pdf.cell(0,5,fill=True,txt =str(col_list[c])+" is highest in the "+str(res[0])+" quarter with an average value of "+str(round(col_max_list[c],3)),align="L",ln=1)
+            res = [key for key in quarters if quarters[key] == date_min_list[c].values[0]]
+            print(col_list[c],"is lowest in the",res[0],"quarter with an average value of",round(col_min_list[c],3))
+            generated_pdf.cell(0,8,fill=True,txt =str(col_list[c])+" is highest in the "+str(res[0])+" quarter with an average value of "+str(round(col_min_list[c],3)),align="L",ln=1)
 
     c = c+1
     generated_pdf.ln(10)
